@@ -7,6 +7,14 @@ def encoder(password):
         encoded_password += new_num
     return encoded_password
 
+def decoder(enc_password):
+    decoded_password = ''
+    for number in enc_password:
+        number = int(number)
+        new_num = str((number - 3) % 10)
+        decoded_password += new_num
+    return decoded_password
+
 if __name__ == '__main__':
     menu = True
     
@@ -26,7 +34,7 @@ if __name__ == '__main__':
             encoded_password = encoder(user_password)
             print('Your password has been encoded and stored!')
         elif user_choice == 2:
-            # original_password = decoder(encoded_password)
-            print(f'The encoded password is {encoded_password}, and the original password is ')
+            original_password = decoder(encoded_password)
+            print(f'The encoded password is {encoded_password}, and the original password is {original_password}.')
         elif user_choice == 3:
             exit()
